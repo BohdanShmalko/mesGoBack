@@ -10,6 +10,12 @@ type UserRepository struct {
 }
 
 func (ur *UserRepository) Create(user *models.User) (*models.User, error) {
+	if err := user.Validate(); err != nil {
+		return nil, err
+	}
+	if err := user.BeforeCreate(); err != nil {
+		return nil, err
+	}
 	if err := ur.store.db.QueryRow(`INSERT INTO
 Users (name, lastName, email, password, defaultPath, nickname, mainphoto, status, aboutme)
 VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id`,
@@ -21,10 +27,15 @@ VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id`,
 }
 
 func (ur *UserRepository) FindUser(email, password string) (*models.User, error) {
+	ep, err := models.EncryptString(password)
+	if err != nil {
+		return nil, err
+	}
+
 	user := &models.User{}
 	var mainPhoto, status, aboutMe []byte
 	if err := ur.store.db.QueryRow(`SELECT id, name, lastname, mainphoto, status, aboutme, defaultpath, email, password, nickname
-FROM users WHERE email = $1 AND password = $2`, email, password).Scan(
+FROM users WHERE email = $1 AND password = $2`, email, ep).Scan(
 	&user.Id, &user.Name, &user.Lastname, &mainPhoto, &status, &aboutMe, &user.DefaultPath, &user.Email, &user.Password, &user.Nickname);
 	err != nil {
 		return nil, err

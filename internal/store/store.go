@@ -3,9 +3,9 @@ package store
 import (
 	"database/sql"
 	_ "github.com/lib/pq"
-	"log"
 )
 
+//TODO in main database varchar(255)
 type Store struct {
 	config *Config
 	db *sql.DB
@@ -19,7 +19,6 @@ func New(sConf *Config) *Store {
 }
 
 func (st *Store) Open() error{
-	log.Println(st.config.DatabaseUrl)
 	db, err := sql.Open("postgres", st.config.DatabaseUrl)
 	if err != nil {
 		return err
