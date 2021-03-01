@@ -1,70 +1,33 @@
 package apiserver
 
 import (
-	"github.com/BohdanShmalko/mesGoBack/internal/store"
-	"github.com/gorilla/mux"
-	"github.com/sirupsen/logrus"
-	"io"
+	"database/sql"
+	"github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore"
 	"net/http"
 )
 
-type ApiServer struct {
-	config *Config
-	logger *logrus.Logger
-	router *mux.Router
-	store *store.Store
-}
-
-func New(config *Config) *ApiServer {
-	return &ApiServer{
-		config: config,
-		logger: logrus.New(),
-		router: mux.NewRouter(),
-	}
-}
-
-func (s *ApiServer) Start() error {
-	if err := s.loggerConfigure(); err != nil {
-		return err
-	}
-	s.routerConfigure()
-
-	if err := s.storeConfigure(); err != nil {
-		return err
-	}
-
-	s.logger.Info("the server started on port " + s.config.BindAddr)
-	return http.ListenAndServe(s.config.BindAddr, s.router)
-}
-
-func (s *ApiServer) routerConfigure() {
-	s.router.HandleFunc("/someroute", s.testRoute())
-}
-
-func (s *ApiServer) loggerConfigure() error {
-	level, err := logrus.ParseLevel(s.config.LogLevel)
+func Start(config *Config) error {
+	db, err := newDB(config.DatabaseUrl)
 	if err != nil {
 		return err
 	}
-	s.logger.SetLevel(level)
+	defer db.Close()
 
-	return nil
+	store := sqlstore.New(db)
+	srv := newServer(store)
+
+	return http.ListenAndServe(config.BindAddr, srv)
 }
 
-func (s *ApiServer) storeConfigure() error {
-	st := store.New(s.config.Store)
-	if err := st.Open(); err != nil {
-		return err
+func newDB(databaseURL string) (*sql.DB, error){
+	db, err := sql.Open("postgres", databaseURL)
+	if err != nil {
+		return nil, err
 	}
 
-	s.store = st
-	return nil
-}
-
-func (s *ApiServer) testRoute() http.HandlerFunc {
-	return func(writer http.ResponseWriter, request *http.Request) {
-		io.WriteString(writer, "<h1>test page</h1>")
+	if err := db.Ping(); err != nil {
+		return nil, err
 	}
+	return db, nil
 }
-
 
