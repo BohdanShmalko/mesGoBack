@@ -5,4 +5,5 @@ import "github.com/BohdanShmalko/mesGoBack/internal/app/models"
 type UserRepository interface {
 	Create(*models.User) error
 	FindUser(string, string) (*models.User, error)
+	Find (int) (*models.User, error)
 }

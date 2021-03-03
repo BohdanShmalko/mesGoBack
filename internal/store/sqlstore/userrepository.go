@@ -36,8 +36,27 @@ func (ur *UserRepository) FindUser(email, password string) (*models.User, error)
 	var mainPhoto, status, aboutMe []byte
 	if err := ur.store.db.QueryRow(`SELECT id, name, lastname, mainphoto, status, aboutme, defaultpath, email, password, nickname
 FROM users WHERE email = $1 AND password = $2`, email, ep).Scan(
-	&user.Id, &user.Name, &user.Lastname, &mainPhoto, &status, &aboutMe, &user.DefaultPath, &user.Email, &user.Password, &user.Nickname);
-	err != nil {
+		&user.Id, &user.Name, &user.Lastname, &mainPhoto, &status, &aboutMe, &user.DefaultPath, &user.Email, &user.Password, &user.Nickname);
+		err != nil {
+		if err == sql.ErrNoRows {
+			return nil, store.ErrRecordNotFind
+		}
+		return nil, err
+	}
+
+	user.MainPhoto = helper.Get(mainPhoto)
+	user.Status = helper.Get(status)
+	user.AboutMe = helper.Get(aboutMe)
+	return user, nil
+}
+
+func (ur *UserRepository) Find(id int) (*models.User, error) {
+	user := &models.User{}
+	var mainPhoto, status, aboutMe []byte
+	if err := ur.store.db.QueryRow(`SELECT id, name, lastname, mainphoto, status, aboutme, defaultpath, email, password, nickname
+FROM users WHERE id = $1`, id).Scan(
+		&user.Id, &user.Name, &user.Lastname, &mainPhoto, &status, &aboutMe, &user.DefaultPath, &user.Email, &user.Password, &user.Nickname);
+		err != nil {
 		if err == sql.ErrNoRows {
 			return nil, store.ErrRecordNotFind
 		}

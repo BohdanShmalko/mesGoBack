@@ -29,3 +29,17 @@ func TestUserRepository_FindUser(t *testing.T) {
 	assert.NotNil(t, user)
 	assert.NoError(t, err)
 }
+
+func TestUserRepository_Find(t *testing.T) {
+	s := teststore.New()
+
+	_, err := s.User().Find(-1)
+	assert.EqualError(t, err, store.ErrRecordNotFind.Error())
+
+	testUser := models.TestUser(t)
+	s.User().Create(testUser)
+
+	user, err := s.User().Find(testUser.Id)
+	assert.NotNil(t, user)
+	assert.NoError(t, err)
+}

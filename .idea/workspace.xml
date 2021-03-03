@@ -20,28 +20,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="04380672-8827-47ff-9fee-92f8c0da2f9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/internal/app/apiserver/server.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/app/apiserver/server_internal_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/errors.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/sqlstore/store.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/sqlstore/testStore.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/teststore/store.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/teststore/userrepository.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/teststore/userrepository_test.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/internal/store/userRepository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/internal/app/apiserver/responsewriter.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apiserver.exe" beforeDir="false" afterPath="$PROJECT_DIR$/apiserver.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmd/apiserver/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/apiserver/main.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/configs/apiserver.toml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/apiserver.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/apiserver/apiserver.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/apiserver/apiserver.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/app/apiserver/apiserver_internal_test.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/app/apiserver/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/apiserver/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/store/config.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/store/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/store.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/store/store_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/sqlstore/store_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/store/testStore.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/store/userrepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/sqlstore/userrepository.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/store/userrepository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/sqlstore/userrepository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/apiserver/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/apiserver/server.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/apiserver/server_internal_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/apiserver/server_internal_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/app/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/app/models/user.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/store/sqlstore/userrepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/sqlstore/userrepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/store/sqlstore/userrepository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/sqlstore/userrepository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/store/teststore/store.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/teststore/store.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/store/teststore/userrepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/teststore/userrepository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/store/teststore/userrepository_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/teststore/userrepository_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/store/userRepository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/store/userRepository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,8 +77,8 @@
       <recent name="D:\Study\3.2\андроїд\backend" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Test.TestServer_HandleUsersFunc in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver">
-    <configuration name="TestServer_HandleUsersFunc in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Test.TestServer_AuthenticateUser in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver">
+    <configuration name="TestServer_AuthenticateUser in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <working_directory value="$PROJECT_DIR$/internal/app/apiserver" />
       <framework value="gotest" />
@@ -91,32 +86,21 @@
       <package value="github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestServer_HandleUsersFunc\E$" />
+      <pattern value="^\QTestServer_AuthenticateUser\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestServer_HandleLoginFunc in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="backend" />
-      <working_directory value="$PROJECT_DIR$/internal/store/sqlstore" />
+      <working_directory value="$PROJECT_DIR$/internal/app/apiserver" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
-      <package value="github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore" />
+      <package value="github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestUserRepository_Create\E$" />
+      <pattern value="^\QTestServer_HandleLoginFunc\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
-      <module name="backend" />
-      <working_directory value="$PROJECT_DIR$/internal/store/sqlstore" />
-      <framework value="gotest" />
-      <kind value="PACKAGE" />
-      <package value="github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <pattern value="^\QTestUserRepository_Create\E$" />
-      <method v="2" />
-    </configuration>
-    <configuration name="TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/teststore (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/teststore" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <working_directory value="$PROJECT_DIR$/internal/store/teststore" />
       <framework value="gotest" />
@@ -127,7 +111,18 @@
       <pattern value="^\QTestUserRepository_Create\E$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUserRepository_FindUser in github.com/BohdanShmalko/mesGoBack/internal/store/teststore (1)" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestUserRepository_Find in github.com/BohdanShmalko/mesGoBack/internal/store/teststore" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="backend" />
+      <working_directory value="$PROJECT_DIR$/internal/store/teststore" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="github.com/BohdanShmalko/mesGoBack/internal/store/teststore" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^\QTestUserRepository_Find\E$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestUserRepository_FindUser in github.com/BohdanShmalko/mesGoBack/internal/store/teststore" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="backend" />
       <working_directory value="$PROJECT_DIR$/internal/store/teststore" />
       <framework value="gotest" />
@@ -140,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Go Test.TestServer_HandleUsersFunc in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" />
-        <item itemvalue="Go Test.TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore (1)" />
-        <item itemvalue="Go Test.TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/teststore (1)" />
-        <item itemvalue="Go Test.TestUserRepository_FindUser in github.com/BohdanShmalko/mesGoBack/internal/store/teststore (1)" />
-        <item itemvalue="Go Test.TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/sqlstore" />
+        <item itemvalue="Go Test.TestServer_AuthenticateUser in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" />
+        <item itemvalue="Go Test.TestServer_HandleLoginFunc in github.com/BohdanShmalko/mesGoBack/internal/app/apiserver" />
+        <item itemvalue="Go Test.TestUserRepository_Find in github.com/BohdanShmalko/mesGoBack/internal/store/teststore" />
+        <item itemvalue="Go Test.TestUserRepository_Create in github.com/BohdanShmalko/mesGoBack/internal/store/teststore" />
+        <item itemvalue="Go Test.TestUserRepository_FindUser in github.com/BohdanShmalko/mesGoBack/internal/store/teststore" />
       </list>
     </recent_temporary>
   </component>
@@ -172,25 +167,25 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="389" y="142" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1614093002267" />
-    <state width="1237" height="368" key="GridCell.Tab.0.bottom" timestamp="1614620063658">
+    <state width="1237" height="418" key="GridCell.Tab.0.bottom" timestamp="1614759771939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="368" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614620063658" />
-    <state width="1237" height="368" key="GridCell.Tab.0.center" timestamp="1614620063658">
+    <state width="1237" height="418" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1614759771939" />
+    <state width="1237" height="418" key="GridCell.Tab.0.center" timestamp="1614759771939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="368" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614620063658" />
-    <state width="1237" height="368" key="GridCell.Tab.0.left" timestamp="1614620063658">
+    <state width="1237" height="418" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1614759771939" />
+    <state width="1237" height="418" key="GridCell.Tab.0.left" timestamp="1614759771939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="368" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614620063658" />
-    <state width="1237" height="368" key="GridCell.Tab.0.right" timestamp="1614620063658">
+    <state width="1237" height="418" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1614759771939" />
+    <state width="1237" height="418" key="GridCell.Tab.0.right" timestamp="1614759771939">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="368" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614620063658" />
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1614580187382">
+    <state width="1237" height="418" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1614759771939" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1614678774545">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1614580187382" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1614678774545" />
   </component>
 </project>

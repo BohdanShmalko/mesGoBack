@@ -20,7 +20,7 @@ func (st *Store) User() store.UserRepository {
 	}
 	st.userRepository = &UserRepository{
 		store: st,
-		users: make(map[AuthKey]*models.User),
+		users: make(map[int]*models.User),
 	}
 	return st.userRepository
 }
